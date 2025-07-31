@@ -1,3 +1,5 @@
+import sys
+import os
 import tkinter as tk
 import ttkbootstrap as ttk
 from tkinter import *
@@ -7,6 +9,10 @@ import threading
 import time
 import webbrowser
 
+def resource_path(relative_path):
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
 
 def donothing():
         return
@@ -15,7 +21,7 @@ def aboutwindow():
         aboutwin = tk.Toplevel()
         aboutwin.title('About SC Serial Debugger')
         aboutwin.geometry('450x575')
-        aboutwin.iconbitmap(r"C:\Users\scampo\Documents\SCSD\SCSD.ico") 
+        aboutwin.iconbitmap(resource_path("SCSD.ico"))
 
 
         aboutwin.resizable(False, False)
@@ -23,7 +29,7 @@ def aboutwindow():
 
         # Logo placeholder
         try:
-            logo_img = tk.PhotoImage(file=r"C:\Users\scampo\Documents\SCSD\SCSD icon.png")
+            Slogo_img = tk.PhotoImage(file=resource_path("SCSD icon.png"))
             logo_img = logo_img.subsample(4, 4)
             logo_lbl = ttk.Label(aboutwin, image=logo_img)
             logo_lbl.image = logo_img    # keep reference
@@ -66,7 +72,7 @@ def aboutwindow():
 
         make_link("Personal Portfolio", "https://salvatore-campo.web.app/")
         make_link("LinkedIn Profile",   "https://www.linkedin.com/in/salvatore-campo/")
-        make_link("GitHub Repository",  "https://github.com/SalCampoJr")
+        make_link("GitHub Repository",  "https://github.com/SalCampoJr/SC-Serial-Debugger.git")
 
         # Close button
         ttk.Button(aboutwin, text="Close", style="Custom.TButton",
@@ -206,7 +212,7 @@ class SerialMonitorApp:
         monitor_window = tk.Toplevel(self.master) #
         monitor_window.title(f"Serial Monitor - {self.serial_port.name}")
         monitor_window.geometry("600x400")
-        monitor_window.iconbitmap(r"C:\Users\scampo\Documents\SCSD\SCSD.ico") 
+        monitor_window.iconbitmap(resource_path("SCSD.ico")) 
 
         add_menubar(monitor_window)
 
@@ -319,7 +325,7 @@ class SerialMonitorApp:
 
 def main():
     root = tk.Tk()
-    root.iconbitmap(r"C:\Users\scampo\Documents\SCSD\SCSD.ico") 
+    root.iconbitmap(resource_path("SCSD.ico"))
     app = SerialMonitorApp(root)
  
     def on_main_close():
