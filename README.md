@@ -15,7 +15,7 @@
 ### To run the executable
 
 - Windows operating system  
-- No installation required — simply launch `SC-Serial-Debugger.exe`
+- No installation required — simply launch `SCSD.exe`
 
 ### To run the source code manually
 
