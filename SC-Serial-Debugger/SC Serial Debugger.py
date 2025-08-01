@@ -29,7 +29,7 @@ def aboutwindow():
 
         # Logo placeholder
         try:
-            Slogo_img = tk.PhotoImage(file=resource_path("SCSD icon.png"))
+            logo_img = tk.PhotoImage(file=resource_path("SCSD icon.png"))
             logo_img = logo_img.subsample(4, 4)
             logo_lbl = ttk.Label(aboutwin, image=logo_img)
             logo_lbl.image = logo_img    # keep reference
@@ -80,7 +80,6 @@ def aboutwindow():
 
 
 def add_menubar(window):
-    """Attach a File/Help menubar to any tk.Tk or tk.Toplevel."""
     menu = tk.Menu(window)
 
     # File menu
